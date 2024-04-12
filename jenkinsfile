@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE_NAME = "rouamnissi/angular"
+        DOCKER_IMAGE_NAME = "eyajomli/angular"
         DOCKER_HUB_CREDENTIALS = 'docker'
         DOCKER_COMPOSE_VERSION = "1.29.2"
     }
@@ -15,12 +15,12 @@ pipeline {
         }
             stage('docker Build') {
                     steps {
-                        sh 'docker build -t rouamnissi/angular .'
+                        sh 'docker build -t eyajomli/angular .'
                     }
                 }
             stage('docker push') {
                     steps {
-                        sh 'docker push rouamnissi/angular:latest'
+                        sh 'docker push eyajomli/angular:latest'
                     }
                 }
 
@@ -29,10 +29,10 @@ pipeline {
                             steps {
                                 script {
                                     // Perform Docker login
-                                    sh 'docker login -u rouamnissi  -p 123456789'
+                                    sh 'docker login -u eyajomli  -p devops123'
 
                                     // Pull the Docker image
-                                    sh 'docker pull rouamnissi/angular'
+                                    sh 'docker pull eyajomli/angular'
 
                                     // Run Docker Compose    s
                                     sh 'docker compose up -d'

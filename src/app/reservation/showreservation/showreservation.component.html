@@ -1,0 +1,44 @@
+<div class="container mt-4">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white">
+      <h1 class="card-title mb-0 text-center">List of Reservations</h1>
+    </div>
+    <div class="card-body m-1">
+      <table class="table table-striped">
+        <thead class="bg-light">
+          <tr>
+            <th>Reservation Number</th>
+            <th>Student CIN</th>
+            <th>Academic Year</th>
+            <th>Valid</th>
+            <th>Room Type</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="reservations && reservations.length > 0; else noData">
+            <tr *ngFor="let reservation of reservations">
+              <td>{{ reservation.numReservation }}</td>
+              <td>{{ reservation.cinEtudiant }}</td>
+              <td>{{ reservation.anneeUniversitaire }}</td>
+              <td>{{ reservation.estValide ? 'Yes' : 'No' }}</td>
+              <td>{{ reservation.TypeChambre }}</td>
+              <td>
+                <button class="btn btn-danger" (click)="delete(reservation.idReservation)">Delete</button>
+              </td>
+            </tr>
+          </ng-container>
+          <ng-template #noData>
+            <tr>
+              <td colspan="6" class="text-center">No reservations available</td>
+            </tr>
+          </ng-template>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="mt-4 text-center">
+  <button class="btn btn-success" (click)="navigateToaddReservation()">Add Reservation</button>
+</div>

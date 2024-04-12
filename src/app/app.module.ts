@@ -3,19 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FoyerComponent } from './foyer/foyer/foyer.component';
-import { Foyer } from './models/Foyer';
+import { Reservation } from './models/Reservation';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ShowfoyerComponent } from './foyer/showfoyer/showfoyer.component';
-import { UpdatefoyerComponent } from './foyer/updatefoyer/updatefoyer.component';
+import { ReservationComponent } from './reservation/reservation/reservation.component';
+import { ShowreservationComponent } from './reservation/showreservation/showreservation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FoyerComponent,
-    ShowfoyerComponent,
-    UpdatefoyerComponent
+    ReservationComponent,
+    ShowreservationComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +22,7 @@ import { UpdatefoyerComponent } from './foyer/updatefoyer/updatefoyer.component'
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [Foyer],
+  providers: [Reservation],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
