@@ -3,7 +3,7 @@ services:
   angular-app:
     image: eyajomli/angular:latest
     ports:
-      - "4201:80"  # Specify ports as strings
+      - "4200:80"  # Specify ports as strings
     restart: always  # Restart should be under the service
 
 
